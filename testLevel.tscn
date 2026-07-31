@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://sd33dhn0kgre"]
+
+[ext_resource type="MeshLibrary" uid="uid://bbrt60olfi2m6" path="res://Mesh Library/background_furniture_floor2.meshlib" id="1_aldhi"]
+[ext_resource type="PackedScene" uid="uid://kbiwbaq33q3r" path="res://Scenes/character_player.tscn" id="2_vgrmv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_568p6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_568p6"]
+
+[node name="Root" type="Node3D" unique_id=1810083445]
+
+[node name="GridMap" type="GridMap" parent="." unique_id=1238721686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+mesh_library = ExtResource("1_aldhi")
+cell_size = Vector3(2, 0.2, 2)
+data = {
+"cells": PackedInt32Array(65534, 65535, 0, 0, 65535, 0, 1, 65534, 0, 1, 65535, 0, 0, 65534, 0, 0, 0, 0, 1, 0, 0, 65535, 65534, 0, 65535, 65535, 0, 65535, 0, 0, 65534, 0, 0, 65534, 65534, 0, 0, 1, 0, 65535, 1, 0, 2, 65535, 0, 2, 0, 0, 2, 65534, 0, 65533, 0, 0, 65533, 65535, 0, 65532, 65535, 0, 65532, 0, 0)
+}
+
+[node name="character_player" parent="." unique_id=1458119970 instance=ExtResource("2_vgrmv")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1871085506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2720437, 3.2946286)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=34571599]
+mesh = SubResource("BoxMesh_568p6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1606305565]
+shape = SubResource("BoxShape3D_568p6")

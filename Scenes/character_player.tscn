@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://kbiwbaq33q3r"]
+
+[ext_resource type="PackedScene" uid="uid://o18f2ifu8hmu" path="res://Models/character_human_blank.blend" id="1_hw1d4"]
+[ext_resource type="Script" uid="uid://bsco21eht7e42" path="res://Scripts/character_player_movement.gd" id="1_qvb4p"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m6qox"]
+height = 2.1
+
+[node name="character_player" type="CharacterBody3D" unique_id=1458119970]
+script = ExtResource("1_qvb4p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1449559799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
+shape = SubResource("CapsuleShape3D_m6qox")
+
+[node name="character_human_blank" parent="." unique_id=552744331 instance=ExtResource("1_hw1d4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=251271853]
+transform = Transform3D(1, 0, 0, 0, 0.8660253, 0.49999997, 0, -0.49999997, 0.8660253, 0, 7, 7)
