@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://c383g67wf2ae6"]
+
+[ext_resource type="PackedScene" uid="uid://o18f2ifu8hmu" path="res://Models/character_human_blank.blend" id="1_ak7q6"]
+[ext_resource type="Script" uid="uid://2rtgxccvfj8u" path="res://character_player_movement2.gd" id="1_hs0xn"]
+[ext_resource type="Script" uid="uid://blhwsvao5pm4t" path="res://character_player_animation.gd" id="3_dcuus"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hs0xn"]
+height = 2.1
+
+[sub_resource type="Animation" id="Animation_b7542"]
+resource_name = "character_player_idle"
+
+[sub_resource type="Animation" id="Animation_qwxif"]
+resource_name = "character_player_walkBack"
+
+[sub_resource type="Animation" id="Animation_yecc3"]
+resource_name = "character_player_walkForward"
+
+[sub_resource type="Animation" id="Animation_kg3sl"]
+resource_name = "character_player_walkLeft"
+
+[sub_resource type="Animation" id="Animation_8fh6q"]
+resource_name = "character_player_walkRight"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l2k2l"]
+_data = {
+&"character_player_idle": SubResource("Animation_b7542"),
+&"character_player_walkBack": SubResource("Animation_qwxif"),
+&"character_player_walkForward": SubResource("Animation_yecc3"),
+&"character_player_walkLeft": SubResource("Animation_kg3sl"),
+&"character_player_walkRight": SubResource("Animation_8fh6q")
+}
+
+[node name="character_player2" type="CharacterBody3D" unique_id=1150321010]
+script = ExtResource("1_hs0xn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=693403753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_hs0xn")
+
+[node name="character_human_blank" parent="." unique_id=682129931 instance=ExtResource("1_ak7q6")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=708324019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+top_level = true
+spring_length = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1096418415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=469139473]
+libraries/ = SubResource("AnimationLibrary_l2k2l")
+script = ExtResource("3_dcuus")
