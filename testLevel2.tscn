@@ -2,6 +2,7 @@
 
 [ext_resource type="MeshLibrary" uid="uid://sovojpphhynd" path="res://Mesh Library/background_furniture_building.meshlib" id="1_5awcj"]
 [ext_resource type="PackedScene" uid="uid://c383g67wf2ae6" path="res://character_player_2.tscn" id="2_5awcj"]
+[ext_resource type="PackedScene" uid="uid://dsyygsbsg077b" path="res://Tools/tools_camera_rig.tscn" id="3_0odus"]
 
 [node name="Root2" type="Node3D" unique_id=449240143]
 
@@ -14,10 +15,13 @@ data = {
 
 [node name="character_player2" parent="." unique_id=1150321010 instance=ExtResource("2_5awcj")]
 
-[node name="Camera3D" parent="character_player2/SpringArm3D" parent_id_path=PackedInt32Array(1150321010, 708324019) index="0" unique_id=1096418415]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 3, 0)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=808759035]
 transform = Transform3D(0.656059, -0.73536634, 0.16977282, 0, 0.22495121, 0.97437, -0.75470954, -0.63924426, 0.14758126, 0, 8.216993, 0)
 
+[node name="tools_camera_rig" parent="." unique_id=1186275542 instance=ExtResource("3_0odus")]
+
+[node name="Camera3D" parent="tools_camera_rig" index="0" unique_id=1930335149 node_paths=PackedStringArray("target")]
+target = NodePath("../../character_player2")
+
 [editable path="character_player2"]
+[editable path="tools_camera_rig"]

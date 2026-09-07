@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://sd33dhn0kgre"]
 
 [ext_resource type="MeshLibrary" uid="uid://bbrt60olfi2m6" path="res://Mesh Library/background_furniture_floor.meshlib" id="1_mqdxu"]
-[ext_resource type="PackedScene" uid="uid://kbiwbaq33q3r" path="res://Scenes/character_player.tscn" id="2_qnwyi"]
+[ext_resource type="PackedScene" uid="uid://kbiwbaq33q3r" path="res://character_player.tscn" id="2_qnwyi"]
 [ext_resource type="PackedScene" uid="uid://dsyygsbsg077b" path="res://Tools/tools_camera_rig.tscn" id="3_e54bq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_568p6"]
